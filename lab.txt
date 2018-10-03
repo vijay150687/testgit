@@ -1,0 +1,46 @@
+//Lab 1 (v1.0)
+var arr =[];
+var gr = new GlideRecord('sys_user');
+gr.addQuery('title','Director');
+gr.query();
+gs.print("Count of matching records : " + gr.getRowCount());
+while(gr.next())
+{
+               gs.print("Pushing Email " + gr.email + " into the array");
+               arr.push(gr.email);
+}
+for (i=0;i<arr.length;i++)
+{
+               gs.print("Email in array " + arr[i]);
+}
+
+//Lab 2 (v1.0)
+var gr = new GlideRecord('sys_user');
+gr.addQuery('title','Director');
+gr.query();
+gs.print("Count of matching records : " + gr.getRowCount());
+while(gr.next())
+{
+               gs.print("Email ID " + gr.email + " Department : "+ gr.name);
+}
+
+//Lab 3 (v1.0)
+var ud = getDirectorDetails();
+for (i=0;i<ud.length;i++)
+{
+               gs.print("Email of user " + ud[i]);
+}
+function getDirectorDetails()
+{
+               var arr =[];
+               var gr = new GlideRecord('sys_user');
+               gr.addQuery('title','Director');
+               gr.query();
+               gs.print("Count of matching records : " + gr.getRowCount());
+               while(gr.next())
+               {
+                              arr.push(gr.email.toString());
+               }
+               return arr;
+}
+
